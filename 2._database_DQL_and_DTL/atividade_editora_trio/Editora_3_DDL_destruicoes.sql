@@ -29,3 +29,4 @@ DROP TABLE vendas;
 
 
 -- DESTRUIR DEPENDÊNCIAS
+
