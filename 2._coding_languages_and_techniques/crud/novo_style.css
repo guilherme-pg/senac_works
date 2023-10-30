@@ -1,0 +1,150 @@
+body {
+    background-image: url(https://faculdadesenacpe.edu.br/v19/wp-content/uploads/2020/11/Vestibular-Faculdade-Senac-2021_2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.form-container {
+    flex: 1;
+    padding: 10px;
+}
+
+.relogio {
+    text-align: right;
+    font-size: 18px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmacao {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button.excluir {
+    background-color: #dc3545;
+}
+
+button.excluir:hover {
+    background-color: #bd2130;
+}
+
+button.editar {
+    background-color: #ffc107;
+}
+
+button.editar:hover {
+    background-color: #d39e00;
+}
+.noticias-container {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+   
+}
+
+.noticias-content {
+    display: flex;
+    width: calc(100% + 3rem); /* Aumente a largura do contêiner para acomodar mais notícias */
+    animation: noticiasScroll 30s linear infinite; /* Ajuste o tempo da animação conforme necessário */
+}
+
+
+.noticia {
+    margin: 0 0.44rem;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    width: calc(50.33% - 0.88rem); /* Aumente a largura das notícias para acomodar mais notícias */
+    animation: noticiasScroll 30s linear infinite; /* Ajuste o tempo da animação conforme necessário */
+}
+
+.noticia h3 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap; /* Evita que o texto quebre para a próxima linha */
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.noticia p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@keyframes noticiasScroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+

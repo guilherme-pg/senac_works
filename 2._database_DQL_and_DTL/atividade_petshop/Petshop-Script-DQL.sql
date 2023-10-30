@@ -1,14 +1,21 @@
 USE petshop;
 
-
 -- 1. Lista dos empregados admitidos entre 2019-01-01 e 2022-03-31
 -- comm as colunas: nome, cpf, data admissão, salário, departamento, telefone
 -- ordenado por admissão decrescente
-SELECT emp.nome, emp.cpf, emp.dataAdm, emp.salario, dep.nome, tel.numero
+
+-- COMENTÁRIO: o intervalo de data não retorna nada pq não tem nada nesse intervalo, mas se mudar 2022 para 2023 aparece
+SELECT
+	emp.nome, 
+    emp.cpf, 
+    emp.dataAdm, 
+    emp.salario, 
+    dep.nome, 
+    tel.numero
 FROM empregado emp
 JOIN departamento dep ON emp.Departamento_idDepartamento = dep.idDepartamento
 JOIN telefone tel ON dep.idDepartamento = tel.Departamento_idDepartamento
-WHERE emp.dataAdm BETWEEN '2019-01-01' AND '2022-03-31'
+WHERE emp.dataAdm BETWEEN '2019-01-01' AND '2023-03-31'
 ORDER BY emp.dataAdm DESC;
 
 -- 2. lista dos empregados que ganham menos que a média salarial dos funcionários do Petshop
@@ -58,6 +65,7 @@ ORDER BY total_de_vendas DESC;
 -- além da soma do valor total apurado pelos serviços prestados nas vendas por empregado e a soma de suas comissões
 -- colunas: nome, cpf, sexo, salário, quantidade vendas com serviço, total valor vendido com serviço, total comissão das vendas com serviço
 -- ordenado por quantidade total de vendas realizadas
+-- ERROR
 SELECT emp.nome AS empregado,
 	emp.cpf,
 	emp.sexo,
@@ -75,8 +83,7 @@ ORDER BY total_vendas DESC;
 
 -- 6. lista dos serviços já realizados por um Pet
 -- trazendo colunas: nome do pet, data do serviço, nome do serviço, quantidade, valor, empregado que realizou o serviço
--- ordenado por data do serviço  da mais recente a mais antiga
--- ??? é a quantidade de serviços realizado em um pet por dia ?
+-- ordenado por data do serviço da mais recente a mais antiga
 SELECT pet.nome,
 	vend.data,
 	serv.nome,
@@ -156,7 +163,7 @@ ORDER BY data DESC;
 -- 11. Lista dos Produtos, informando qual Fornecedor de cada produto,
 -- trazendo as colunas (Nome Produto, Valor Produto, Categoria do Produto, Nome Fornecedor, Email Fornecedor, Telefone Fornecedor),
 -- ordenado por Nome Produto;
--- ??? categoria do produto?
+-- ERROR
 SELECT 
 	prod.nome,
 	forn.nome,
