@@ -1,0 +1,79 @@
+
+/* FORM INSERT */
+.insert_zone {
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+.insert_zone h1 {
+    margin-bottom: 10px;
+}
+.insert_form {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+}
+.input_zone {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: purple;
+    width: 80%;
+}
+.label_input_zone {
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    margin: 10px;
+}
+.label_input_zone input {
+    padding: 5px;
+    outline: none;
+    width: 350px;
+}
+
+
+
+
+
+/* TABLE */
+.collection_zone {
+    background-color: yellow;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+.table_zone {
+    background-color: grey;
+    display:flex;
+    align-items: center;
+    width: 90%;
+}
+.get_form {
+    background-color: red;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 10px;
+}
+.get_form button {
+    margin: 0;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: left;
+}
+td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}

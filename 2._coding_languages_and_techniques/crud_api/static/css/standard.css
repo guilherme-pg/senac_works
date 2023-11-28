@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Rubik', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAD2;
+}
+
+
+
+
+
+/* HEADER */
+header {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+}
+.header_resource {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+
+
+
+
+
+/* MAIN */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 100vh;
+}
+
+
+
+
+
+/* FOOTER */
+footer {
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+/* GENERAL BUTTONS */
+.submit_button {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    width: 150px;
+}

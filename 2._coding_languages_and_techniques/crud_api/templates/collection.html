@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/standard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
+    <title>CRUD</title>
+</head>
+<body>
+    <header>
+    
+    </header>
+    
+    
+    <main>
+        <div class="insert_zone">
+            <h1>Book Register</h1>
+            <form class="insert_form" id="insert_data" method="post">
+                <div class="input_zone">
+                    <div class="label_input_zone">
+                        <label>Title</label>
+                        <input type="text">
+                    </div>
+                    <div class="label_input_zone">
+                        <label>Author</label>
+                        <input type="text">
+                    </div>
+                    <div class="label_input_zone">
+                        <label>Pages</label>
+                        <input type="text">
+                    </div>
+                    <div class="label_input_zone">
+                        <label>Year</label>
+                        <input type="text">
+                    </div>
+                    <div class="label_input_zone">
+                        <label>Gender</label>
+                        <input type="text">
+                    </div>
+                    <div class="label_input_zone">
+                        <label>Description</label>
+                        <input type="text">
+                    </div>
+                    
+                </div>
+                
+                <button class="submit_button" id="upload-button">Insert Data</button>
+            </form>
+        </div>
+        
+        <div class="collection_zone">
+            
+            <form class="get_form" method="get">
+                <h2>Collection</h2>
+                <button class="submit_button" id="collection-button">Update Collection</button>
+            </form>
+            <div class="table_zone">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Year</th>
+                        <th>Gender</th>
+                        <th>Description</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>TTTTTTTTT TTTTTTTTTTTT</td>
+                        <td>AAAAAAAA AAAAAAAA</td>
+                        <td>PPPPPPPPP</td>
+                        <td>YYYYYYYYYY</td>
+                        <td>GGGGGGG GGGGGGG GGGGGGG</td>
+                        <td>DDDDD DDDDDDDDD DDD DDDDDDDD DDD DDDDDD DDDDD</td>
+                        <td>UPDATE</td>
+                        <td>DELETE</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    </main>
+
+
+    <footer>
+        <h1>FOOTER</h1>
+    </footer>
+</body>
+</html>
