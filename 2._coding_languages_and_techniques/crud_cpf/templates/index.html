@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    
+    <title>Alunos</title>
+
+    <!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Marcello Ramalho de Mello</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:Order msdt:dt="string">762700.000000000</mso:Order>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Marcello Ramalho de Mello</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:ContentTypeId msdt:dt="string">0x0101001E365C66953F224586EAA339C985DA46</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+
+</head>
+<body>
+    <header>
+        <a href="#cadastro">Cadastro</a>
+        <a href="#tabela">Tabela</a>
+    </header>
+
+
+    <section id="cadastro">
+
+        <div class="msg_feedback">
+            <p>{{ msg }}</p>
+            <button type="button" id="flash_button">OK</button>
+        </div>
+
+        <div class="container">
+            <h1>Cadastro de Alunos</h1>
+            <div class="form-container">
+
+                <form id="formAluno" action="/add_user" method="post"> <!-- Alteração no action -->
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="name" required>
+                    
+                    <!-- <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" required> -->
+                    
+                    <label for="cpf">CPF</label>
+                    <p class="explanation">(considere os pontos e o traço para os dígitos finais, por exemplo: "000.000.000-00")</p>
+                    <input type="text" id="cpf" name="cpf" required>
+                    
+                    <button type="submit" id="salvarBtn">Salvar</button>
+                    <button type="submit" id="btnAtualizar" style="display:none;">Atualizar</button>
+                </form>
+            </div>
+
+            <div class="relogio" id="relogio"></div>
+        </div>
+    </section>
+
+    
+
+    <section id="tabela">
+        <div class="container">
+            <h1>Alunos Cadastrados</h1>
+            <div>
+                {% if users %}
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>CPF</th>
+                                <th>Up date</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user[0] }}</td> <!-- Assuming ID is the first column in your table -->
+                                    <td>{{ user[1] }}</td> <!-- Assuming Name is the second column in your table -->
+                                    <td>{{ user[2] }}</td> <!-- Assuming CPF is the third column in your table -->
+                                    <td><button class="update-btn" >Update</button></td>
+                                    <td><button class="delete-btn" >Delete</button></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No users found.</p>
+                {% endif %}
+            </div>
+        </div>
+        
+    </section>
+
+    
+    
+    
+
+
+    <div id="confirmacao" class="confirmacao">
+        <p>Tem certeza que deseja excluir este aluno?</p>
+        <button id="confirmarExclusao">Sim</button>
+        <button id="cancelarExclusao">Cancelar</button>
+    </div>
+
+
+
+    <div class="noticias-container">
+        <div class="noticias-content">
+            <div class="noticia">
+                <h3>Notícia 1</h3>
+                <p>Professor Marcello Mello é visto cantando brega em bar no Recife Antigo!</p>
+            </div>
+
+            <div class="noticia">
+                <h3>Notícia 2</h3>
+                <p> Professor Danilo Farias solta palavrão em sala de aula e alunos ficam estarrecidos. "Vão estudar seus porra!"</p>
+            </div>
+
+            <div class="noticia">
+                <h3>Notícia 3</h3>
+                <p>Pão pizza da lanchonete do Senac tem mais massa do que carro batido.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/scripts/inedx.js"></script>
+    <script src="../static/scripts/cpf_scripts.js"></script>
+</body>
+</html>
