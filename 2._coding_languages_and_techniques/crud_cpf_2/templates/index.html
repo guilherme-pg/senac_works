@@ -47,7 +47,7 @@
                     <input type="text" id="nome" name="name" required>
                     
                     <label for="cpf">CPF</label>
-                    <p class="explanation">(considere os pontos e o traço para os dígitos finais, por exemplo: "000.000.000-00")</p>
+            
                     <input type="text" id="cpf" name="cpf" required>
                     <p id="cpfError" style="color: red; display: none;">CPF inválido. Digite um CPF válido.</p>
                     
@@ -87,10 +87,10 @@
                                         <div class="update-form" data-user-id="{{ user[0] }}" style="display: none;">
                                             <form action="{{ url_for('update_user', user_id=user[0]) }}" method="post">
                                                 <label for="updated_name">Novo Nome:</label>
-                                                <input class="input_edit" type="text" name="updated_name" required>
+                                                <input class="input_edit" type="text" name="updated_name">
                                                 
                                                 <label for="updated_cpf">Novo CPF:</label>
-                                                <input class="input_edit" type="text" name="updated_cpf" required>
+                                                <input class="input_edit" type="text" name="updated_cpf">
                                     
                                                 <button type="submit">Atualizar</button>
                                             </form>
@@ -115,33 +115,6 @@
             </div>
         </div>
     </section>
-
-
-    <!-- <section id="edicao" style="display:none;">
-        <div class="container">
-            <h1>Editar Aluno</h1>
-            <div class="form-container">
-                <form id="formEdicao" action="#" method="post">
-                    <label for="nomeEdicao">Novo Nome</label>
-                    <input type="text" id="nomeEdicao" name="name" required>
-                    
-                    <label for="cpfEdicao">Novo CPF</label>
-                    <p class="explanation">(considere os pontos e o traço para os dígitos finais, por exemplo: "000.000.000-00")</p>
-                    <input type="text" id="cpfEdicao" name="cpf" required>
-                    
-                    <button type="button" id="btnConfirmarEdicao">Atualizar</button>
-                    <button type="button" id="btnCancelarEdicao">Cancelar</button>
-                </form>
-            </div>
-        </div>
-    </section> -->
-
-
-    <!-- <div id="confirmacao" class="confirmacao">
-        <p>Tem certeza que deseja excluir este aluno?</p>
-        <button id="confirmarExclusao">Sim</button>
-        <button id="cancelarExclusao">Cancelar</button>
-    </div> -->
 
 
     <div class="noticias-container">

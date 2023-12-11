@@ -27,26 +27,6 @@ def create_table():
     conn.close()
 
 
-def calcula_cpf(cpf):
-  # Remove caracteres não numéricos
-  cpf = ''.join(filter(str.isdigit, cpf))
-
-  # Verifica se o CPF tem 11 dígitos ou se todos são iguais
-  if len(cpf) != 11 or len(set(cpf)) == 1:
-      return False
-
-  v1 = v2 = 0
-  for i in range(9):
-      v1 += int(cpf[8 - i]) * (9 - (i % 10))
-      v2 += int(cpf[8 - i]) * (9 - ((i + 1) % 10))
-
-  v1 = (v1 % 11) % 10
-  v2 += v1 * 9
-  v2 = (v2 % 11) % 10
-  
-  return cpf.endswith(str(v1) + str(v2))
-
-
 # GET
 @app.route('/')
 def index():
@@ -79,9 +59,10 @@ def add_user():
             msg = f"CPF de {name} é inválido!"
             print(msg)
             return redirect(url_for('index', msg=msg))
-        
-        if len(cpf) == 11:
+
+        if len(cpf) == 11 or len(cpf_numbers) == 11:
             cpf = f'{cpf_numbers[:3]}.{cpf_numbers[3:6]}.{cpf_numbers[6:9]}-{cpf_numbers[9:]}'
+
 
         conn = sqlite3.connect(DB_NAME)
         cursor = conn.cursor()
@@ -108,11 +89,17 @@ def update_user(user_id):
         updated_name = request.form['updated_name']
         updated_cpf = request.form['updated_cpf']
 
+        cpf_numbers = ''.join(filter(str.isdigit, updated_cpf))
+
         # Validating CPF using a regular expression
         cpf_pattern = re.compile(r'^(\d{3}\.\d{3}\.\d{3}-\d{2})$')
-        if not cpf_pattern.match(updated_cpf):
-            msg = "CPF inválido!"
+        if len(cpf_numbers) != 11 and not cpf_pattern.match(updated_cpf):
+            msg = f"CPF de {updated_name} é inválido!"
+            print(msg)
             return redirect(url_for('index', msg=msg))
+
+        if len(updated_cpf) == 11 or len(cpf_numbers) == 11:
+            updated_cpf = f'{cpf_numbers[:3]}.{cpf_numbers[3:6]}.{cpf_numbers[6:9]}-{cpf_numbers[9:]}'
 
         # Connect to the database and update the user
         conn = sqlite3.connect(DB_NAME)
