@@ -2,6 +2,7 @@
 -- Crie um script que irá realizar todas as suas consultas/perguntas/relatórios (DQL), é obrigatório uso de join e/ou subselect na maioria das consultas. 
 -- Devem criar no mínimo 20 scripts de SELECT;
 
+
 -- PERGUNTA/RELATÓRIO 1: Quais os 5 autores mais vendido?
 SELECT 
 	autores.nome, 
@@ -16,6 +17,7 @@ GROUP BY autores.nome, vendas.valor
 ORDER BY vendas.valor DESC
 LIMIT 5;
 
+
 -- PERGUNTA/RELATÓRIO 2: Quais os 5 livros mais vendido?
 SELECT 
 	livros.titulo, 
@@ -28,6 +30,7 @@ GROUP BY livros.titulo, vl.quantidade
 ORDER BY valor_total DESC
 LIMIT 5;
 
+
 -- PERGUNTA/RELATÓRIO 3: Quais as palavras-chave que mais aparecem nos livros?
 SELECT 
 	pc.palavra, 
@@ -37,6 +40,7 @@ JOIN palavras_chave_has_livros pcl ON pc.ID_palavra_chave = pcl.palavras_chave_I
 JOIN livros ON pcl.Livros_ISBN = livros.ISBN
 GROUP BY pc.palavra
 ORDER BY total_ocorrencias DESC;
+
 
 -- PERGUNTA/RELATÓRIO 4: Qual a quantidade de exemplares vendidos de cada livro e o total apurado?
 SELECT 
@@ -50,6 +54,7 @@ FROM
 GROUP BY SUBSTRING(vendas.data_venda, 1, 7)
 ORDER BY valor_total DESC;
 
+
 -- PERGUNTA/RELATÓRIO 5: Qual o estado dos exemplares mais vendidos?
 SELECT
 	exemplares.estado,
@@ -60,6 +65,7 @@ JOIN livros ON exemplares.livros_ISBN = livros.ISBN
 JOIN vendas_has_livros vl ON livros.ISBN = vl.livros_ISBN
 GROUP BY exemplares.estado
 ORDER BY quantidade_total DESC;
+
 
 -- PERGUNTA/RELATÓRIO 6: Quais foram os valores dos descontos dados acima de 10?
 SELECT
@@ -78,6 +84,7 @@ JOIN vendas_has_livros vl ON vl.Vendas_ID_venda = vendas.ID_venda
 GROUP BY substring(vendas.data_venda, 9, 10)
 ORDER BY valor_total DESC;
 
+
 -- PERGUNTA/RELATÓRIO 8: Quais as 3 área de conhecimento que mais vendem?
 SELECT 
 	ac.area, 
@@ -91,6 +98,7 @@ GROUP BY ac.area
 ORDER BY total_vendido DESC
 LIMIT 3;
 
+
 -- PERGUNTA/RELATÓRIO 9: Quais livros estão atualmente em estoque com menos de 25 unidades disponíveis?
 SELECT
 	livros.titulo,
@@ -99,6 +107,7 @@ SELECT
 FROM livros
 WHERE livros.estoque < 25
 ORDER BY livros.estoque;
+
 
 -- PERGUNTA/RELATÓRIO 10: Qual é o gênero de livro mais vendido pela editora?
 SELECT 
@@ -109,6 +118,7 @@ FROM livros
 JOIN vendas_has_livros vl ON livros.ISBN = vl.livros_ISBN
 GROUP BY livros.genero
 ORDER BY quantidade_total DESC;
+
 
 -- PERGUNTA/RELATÓRIO 11: Quais são os três clientes que mais pedem?
 SELECT 
@@ -130,6 +140,7 @@ JOIN vendas_has_livros vl ON vendas.ID_venda = vl.Vendas_ID_venda
 GROUP BY SUBSTRING(vendas.data_venda, 1, 7)
 ORDER BY valor_medio DESC;
 
+
 -- PERGUNTA/RELATÓRIO 13: Quais os anos dos livros mais vendidos?
 SELECT 
 	livros.ano_publicacao,
@@ -138,6 +149,7 @@ FROM livros
 JOIN vendas_has_livros vl ON livros.ISBN = vl.livros_ISBN
 GROUP BY livros.ano_publicacao
 ORDER BY quantidade_total DESC;
+
 
 -- PERGUNTA/RELATÓRIO 14: Qual a quantidade de páginas dos livros mais vendidos?
 SELECT 
@@ -148,6 +160,7 @@ FROM livros
 JOIN vendas_has_livros vl ON livros.ISBN = vl.livros_ISBN
 GROUP BY livros.titulo, livros.paginas
 ORDER BY quantidade_total DESC;
+
 
 -- PERGUNTA/RELATÓRIO 15: Qual o Estado mais frequente na lista de enderecos?
 SELECT 
@@ -166,6 +179,7 @@ FROM pedidos
 JOIN pedidos_and_livros pl ON pedidos.ID_pedido = pl.Pedidos_ID_pedido
 ORDER BY pl.quantidade DESC;
 
+
 -- PERGUNTA/RELATÓRIO 17: Entre os 10 livros mais caros qual foi a quantidade vendida de cada um e quanto foi apurado?
 SELECT
 	livros.titulo,
@@ -176,6 +190,7 @@ JOIN vendas_has_livros vl ON livros.ISBN = vl.Livros_ISBN
 GROUP BY livros.titulo
 ORDER BY quantidade_total DESC;
 
+
 -- PERGUNTA/RELATÓRIO 18: Qual a média de páginas por gênero?
 SELECT
 	livros.genero,
@@ -183,6 +198,7 @@ SELECT
 FROM livros
 GROUP BY livros.genero
 ORDER BY media_paginas DESC;
+
 
 -- PERGUNTA/RELATÓRIO 19: Qual a nacionalidade do autor mais vendido?
 SELECT 
